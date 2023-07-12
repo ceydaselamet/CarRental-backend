@@ -65,12 +65,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == id));
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == id), Messages.CarsListed);
         }
 
         public IDataResult<List<Car>> GetCarsByColorId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id), Messages.CarsListed);
         }
 
         public IResult Update(Car car)
@@ -79,14 +79,5 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarUpdated);
         }
 
-        IDataResult<Car> ICarService.GetCarsByBrandId(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        IDataResult<Car> ICarService.GetCarsByColorId(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
