@@ -92,7 +92,7 @@ namespace WebAPI.Controllers
             var result = _carService.GetCarDetail(carId);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
             return BadRequest();
         }
