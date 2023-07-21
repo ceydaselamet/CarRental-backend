@@ -38,7 +38,7 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<RentalDetailDto> GetRentalDetailById(int rentalId)
+        public List<RentalDetailDto> GetRentalDetailsByCarId(int carId)
         {
             using (CarsContext context = new CarsContext())
             {
@@ -51,9 +51,10 @@ namespace DataAccess.Concrete.EntityFramework
                              on car.BrandId equals brand.BrandId
                              join user in context.Users
                              on customer.UserId equals user.Id
+                             where rental.CarId == carId
                              select new RentalDetailDto
                              {
-                                 CarName = brand.BrandName,
+                                 CarName = car.Description,
                                  RentalId = rental.RentalId,
                                  UserName = user.FirstName + " " + user.LastName,
                                  CompanyName = customer.CompanyName,

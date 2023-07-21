@@ -10,6 +10,6 @@ namespace DataAccess.Abstract
     public interface IRentalDal:IEntityRepository<Rental>
     {
         List<RentalDetailDto> GetRentalDetails();
-        List<RentalDetailDto> GetRentalDetailById(int rentalId);
+        List<RentalDetailDto> GetRentalDetailsByCarId(int carId);
     }
 }
